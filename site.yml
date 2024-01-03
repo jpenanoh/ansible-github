@@ -1,0 +1,18 @@
+---
+
+- hosts: all
+  become: true
+  tasks: 
+ 
+  - name: creating new web-server 
+    package:
+      name: httpd 
+      state: latest 
+  - name: start apache webserver now.
+    service:
+      name: httpd
+      state: started
+  - name: updating the servers
+    package:
+      update_cache: true 
+   
